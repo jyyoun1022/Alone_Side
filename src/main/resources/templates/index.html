@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="setContent(content)">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link th:href="@{/css/index.css}" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.15.4/css/all.css}" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+</head>
+<body>
+<header class="header-container">
+    <img class="header-logo" th:src="@{/images/hola_logo_w.png}"/>
+    <div class="header-user">
+        <a class="write-board">새 글 쓰기</a>
+        <a class="username">username</a>
+        <img class="user-icon" th:src="@{/images/default.png}"/>
+        <i id="down-icon"class="fas fa-sort-down"></i>
+    </div>
+</header>
+<section class="content-container">
+    <div class="main-banner">
+        <div class="main-desc">
+            <div class="intro">스터디와
+                사이드 프로젝트를
+                찾는 가장 쉬운 방법
+            </div>
+            <img class="content-logo" th:src="@{/images/hola_logo_y.png}"/>
+            <span class="intro-sub">
+                에서 함께 할 팀원을 찾아보세요.</span>
+        </div>
+        <div>
+            <img class="main-img" th:src="@{/images/main.png}"/>
+        </div>
+    </div>
+    <img class="filter" th:src="@{/images/languegeBar_bubble.png}"/>
+
+    <div class="select-language">
+        <button class="lang-btn" id="javascript" value="javascript" onClick="onSelect(this)">
+            <img class="lang-img" th:src="@{/images/language/javascript.png}"/>
+        </button>
+        <button class="lang-btn"  id="typescript" value="typescript" onClick="onSelect(this)">
+            <img class="lang-img" th:src="@{/images/language/typescript.png}"/>
+        </button>
+        <button class="lang-btn" id="react" value="react" onClick="onSelect(this)">
+            <img class="lang-img" th:src="@{/images/language/react.png}"/>
+        </button>
+        <button class="lang-btn"  id="vue" value="vue" onClick="onSelect(this)">
+            <img class="lang-img" th:src="@{/images/language/vue.png}"/>
+        </button>
+        <button class="lang-btn"  id="node" value="node" onClick="onSelect(this)">
+            <img class="lang-img" th:src="@{/images/language/node.js.png}"/>
+        </button>
+        <button class="lang-btn"  id="java" value="java" onClick="onSelect(this)">
+            <img class="lang-img" th:src="@{/images/language/java.png}"/>
+        </button>
+        <button class="lang-btn"  id="spring" value="spring" onClick="onSelect(this)">
+            <img class="lang-img" th:src="@{/images/language/spring.png}"/>
+        </button>
+        <button class="lang-btn"  id="kotlin" value="kotlin" onClick="onSelect(this)">
+            <img class="lang-img" th:src="@{/images/language/kotlin.png}"/>
+        </button>
+        <button class="lang-btn" id="cplus" value="cplus" onClick="onSelect(this)">
+            <img class="lang-img" th:src="@{/images/language/c++.png}"/>
+        </button>
+        <button class="lang-btn" id="go" value="go" onClick="onSelect(this)">
+            <img class="lang-img" th:src="@{/images/language/go.png}"/>
+        </button>
+        <button class="lang-btn" id="python" value="python" onClick="onSelect(this)">
+            <img class="lang-img" th:src="@{/images/language/python.png}"/>
+        </button>
+        <button class="lang-btn" id="django" value="django" onClick="onSelect(this)">
+            <img class="lang-img" th:src="@{/images/language/django.png}"/>
+        </button>
+        <button  class="lang-btn"  id="flutter" value="flutter" onClick="onSelect(this)">
+            <img class="lang-img" th:src="@{/images/language/flutter.png}"/>
+        </button>
+        <button class="lang-btn" id="swift" value="swift" onClick="onSelect(this)">
+            <img class="lang-img" th:src="@{/images/language/swift.png}"/>
+        </button>
+    </div>
+    <div class="board-container">
+        <div class="board-tab">
+            <div class="iconBox">
+                <i class="fas fa-calendar-check">&nbsp;최신</i>
+                <i class="fas fa-fire-alt">&nbsp;인기</i>
+            </div>
+            <div>
+                <input type="checkbox" class="gathering"/>
+                <span class="gathering-text">모집 중인 글만 보기</span>
+            </div>
+        </div>
+        <div class="board-list column">
+            <div class="board-list row">
+                <div class="board-box" th:each="test : ${test}">
+                    <div class="board-content">
+                        <th:block th:replace = "${content}"></th:block>
+                    </div>
+                    <div class="img-list">
+                        <img class="board-img" th:src="@{/images/language/java.png}"/>
+                    </div>
+                    <div class="board-icon">
+                        <i class="far fa-comment">0</i>
+                        <i class="far fa-eye">0</i>
+                        <i class="fas fa-heart">0</i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<script th:src="@{/js/index.js}" type="text/javascript"></script>
+</body>
+</th:block>
+</html>
