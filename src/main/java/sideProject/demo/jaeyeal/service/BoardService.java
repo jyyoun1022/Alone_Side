@@ -9,9 +9,20 @@ public interface BoardService {
 
 
 
-//    default BoardDTO entityToDto(Board entity){
-//
-//    }
+    default BoardDTO entityToDto(Board entity){
+        BoardDTO dto = BoardDTO.builder()
+                .bno(entity.getBno())
+                .title(entity.getTitle())
+                .content(entity.getContent())
+                .view_count(entity.getView_count())
+                .like_count(entity.getLike_count())
+                .member_id(entity.getMember_id())
+                .regDate(entity.getRegDate())
+                .modDate(entity.getModDate())
+                .build();
+
+        return dto;
+    }
 
     default Board dtoToEntity(BoardDTO dto){
         Board board = Board.builder()
